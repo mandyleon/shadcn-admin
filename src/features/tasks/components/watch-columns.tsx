@@ -34,19 +34,6 @@ export const watchColumns: ColumnDef<Task>[] = [
     enableHiding: false,
   },
   {
-    accessorKey: 'dateCreated',
-    header: ({ column }) => (
-      <DataTableColumnHeader column={column} title='Date' />
-    ),
-    cell: ({ row }) => {
-      const value = row.original.dateCreated
-      const date = value ? new Date(value) : null
-      return <span className='text-xs text-muted-foreground'>{date ? date.toLocaleDateString() : ''}</span>
-    },
-    enableSorting: true,
-    enableHiding: true,
-  },
-  {
     accessorKey: 'id',
     header: ({ column }) => (
       <DataTableColumnHeader column={column} title='Image' />
@@ -125,6 +112,19 @@ export const watchColumns: ColumnDef<Task>[] = [
     cell: ({ row }) => {
       const value = row.original.referenceCode
       return <span className='text-xs text-muted-foreground'>{value ?? '-'}</span>
+    },
+    enableSorting: true,
+    enableHiding: true,
+  },
+  {
+    accessorKey: 'dateCreated',
+    header: ({ column }) => (
+      <DataTableColumnHeader column={column} title='Date' />
+    ),
+    cell: ({ row }) => {
+      const value = row.original.dateCreated
+      const date = value ? new Date(value) : null
+      return <span className='text-xs text-muted-foreground'>{date ? date.toLocaleDateString() : ''}</span>
     },
     enableSorting: true,
     enableHiding: true,
